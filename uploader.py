@@ -6,7 +6,7 @@ from googleapiclient.http import MediaFileUpload
 import AuthManager
 import SlackNotifier
 
-config = json.load(open('config.json'))
+config = json.load(open('/home/esmaeel/PycharmProjects/pythonProject/config.json'))
 
 
 def get_files(service):

@@ -2,7 +2,7 @@ import json
 import datetime
 import requests
 
-config = json.load(open('config.json'))
+config = json.load(open('/home/esmaeel/PycharmProjects/pythonProject/config.json'))
 
 
 def notify(version, download_url, custom_message=""):
