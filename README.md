@@ -1,6 +1,6 @@
-## Google Drive Python Script.
+## flyNow
 
-- this scrip is made for `Build` & `upload` files and `notif` a `slack channel` or `slack conversation`
+- this tool is made for `Build` & `upload` files and `notif` a `slack channel` or `slack conversation`
 using `slack Incoming WebHocks`.
 
 - you will need those files in the repo to run the script:
