@@ -37,4 +37,6 @@ using `slack Incoming WebHocks`.
   
   #### Usage
   ######
-  - `python3 uploader.py -u <filepath> <version or name>` for uploading a file, you should specify a name for the slack notification, `python3 uploader -u <filepath> "name" ` `""` as an empty string
+  - `python3 uploader.py -u <filepath> <version or name>` for uploading a file, you should specify a name for the slack notification, `python3 uploader -u <filepath> "name" ` `""` as an empty string.
+  
+  -  `python3 flyNow.py -u <filepath> <version or name>` for building android application and upload the apk file and notify Slack channel of `reveiver` in `config.json` , you should specify a name for the slack notification.
