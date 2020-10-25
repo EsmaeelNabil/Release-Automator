@@ -1,6 +1,6 @@
 ## Google Drive Python Script.
 
-- this scrip is made for `uploading` files and `notifying` a `slack channel` or `slack conversation`
+- this scrip is made for `Build` & `upload` files and `notif` a `slack channel` or `slack conversation`
 using `slack Incoming WebHocks`.
 
 - you will need those files in the repo to run the script:
