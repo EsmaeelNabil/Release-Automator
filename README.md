@@ -1,6 +1,6 @@
 ## flyNow
 
-- this tool is made for `Build` & `upload` files and `notif` a `slack channel` or `slack conversation`
+- this tool is made for `Build` & `upload` files and `notify` a `slack channel` or `slack conversation`
 using `slack Incoming WebHocks`.
 
 - you will need those files in the repo to run the script:
@@ -41,7 +41,7 @@ using `slack Incoming WebHocks`.
    ``` 
    pip install -r requirements.txt
    ```    
-- Upload a file
+- Upload to Drive --> Notify Slack.
   ```
   python3 uploader.py -u <filepath> <version or name>
     ```
