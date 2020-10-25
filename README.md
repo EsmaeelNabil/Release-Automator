@@ -1,5 +1,9 @@
 ## flyNow
 
+|                        samples                           |
+:--------------------------------------------------:
+| ![sample2.gif](terminal.png)  ![sample.gif](slack.png)|
+
 - this tool is made for `Build` & `upload` files and `notify` a `slack channel` or `slack conversation`
 using `slack Incoming WebHocks`.
 
