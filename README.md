@@ -44,17 +44,19 @@ using `slack Incoming WebHocks`.
 - Install required libraries first. 
    ``` 
    pip install -r requirements.txt
-   ```    
+   ```
+   
+- Build APK --> Upload to Drive --> Notify Slack.
+    ####
+    ```
+    python3 flyNow.py "version_or_name"
+    ```
+-  notification will be sent to the `reveiver` in `config.json` , you should specify a version or name or `empty "" ` string for no name or version.
+    ##
 - Upload to Drive --> Notify Slack.
   ```
   python3 uploader.py -u <filepath> <version or name>
     ```
 - for uploading a file, you should specify a name for the slack notification, `python3 uploader -u <filepath> "name" ` `""` as an empty string.  
-    ##
-- Build APK --> Upload to Drive --> Notify Slack.
-    ####
-    ```
-    python3 flyNow.py -u <filepath> <version or name>
-    ```
--  notification will be sent to the `reveiver` in `config.json` , you should specify a version or name or `empty "" ` string for no name or version.
+
 
