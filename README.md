@@ -14,7 +14,7 @@ using `slack Incoming WebHocks`.
   {
   "enable_slack_notification": true,
   "change_permission": true,
-  "receiver": "get this url from Slack incoming web hocks"
+  "receiver": "get this url from Slack incoming web hocks",
   "auther" : "Auther name"
   }
     ```
