@@ -40,3 +40,6 @@ def authenticate_if_needed():
             pickle.dump(creds, token)
 
     return build('drive', 'v3', credentials=creds)
+
+
+authenticate_if_needed()

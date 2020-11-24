@@ -10,7 +10,7 @@ def notify(version, download_url, custom_message=""):
     # RECEIVER
     url = config["receiver"]
     body = {
-        'text': f'{version} is ready in : {current_date}: <{download_url}|Download> \nAuther : Esmaeel Nabil\n{custom_message}',
+        'text': f'{version} \ndate : {current_date}: <{download_url}|Download> \nAuther : Esmaeel Nabil\n{custom_message}',
         'username': 'Android Muhla Release Bot',
         'icon_emoji': ':rocket:'
     }
