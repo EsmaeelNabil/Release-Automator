@@ -5,6 +5,7 @@ import sys
 from googleapiclient.http import MediaFileUpload
 import AuthManager
 import SlackNotifier
+from printer import printy, print_ok
 
 config = json.load(open('/home/esmaeel/PycharmProjects/pythonProject/config.json'))
 
@@ -22,45 +23,23 @@ def get_files(service):
             print(u'{0} ({1})'.format(item['name'], f'https://drive.google.com/file/d/{item["id"]}'))
 
 
-def upload_file(service, file_path, app_version):
+def upload_file(service, file_path, shareable=True):
     filename = os.path.basename(file_path)
     print(filename)
 
     file_metadata = {'name': filename}
     media = MediaFileUpload(file_path, chunksize=1024 * 1024, resumable=True)
-    print('Uploading ........')
+    printy('Uploading ..........................')
     file = service.files().create(body=file_metadata,
                                   media_body=media,
                                   fields='id').execute()
 
-    download_url = f'https://drive.google.com/file/d/{file.get("id")}'
-    print("File Uploaded :", download_url)
-
-    # make it visible to anyone with a link if enabled in config.json .
-    if config['change_permission']:
-        service.permissions().create(body={"role": "reader", "type": "anyone"}, fileId=file.get('id')).execute()
-
-    # ability for disabling slack notifications from config.json.
-    if config["enable_slack_notification"]:
-        SlackNotifier.notify(app_version, download_url)
-        print("Slack Channel Updated Successfully.")
-
-
-def main():
-    if sys.argv[1] == '-list':
-        service = AuthManager.authenticate_if_needed()
-        get_files(service)
-
-    elif sys.argv[1] == '-u':
-        service = AuthManager.authenticate_if_needed()
-        file = sys.argv[2]
-        file_version = sys.argv[3]
-        upload_file(service, file, file_version)
-
-
-if __name__ == '__main__':
-    if len(sys.argv) == 1:
-        print("python3 uploader.py : \nfor UPLOAD : -u <FILE-PATH> <NAME> \nfor FILES list: -list")
-        sys.exit(2)
+    if file.get("id") is not None:
+        download_url = f'https://drive.google.com/file/d/{file.get("id")}'
+        print_ok(f' APk Uploaded Successfully at : {download_url}')
+        # make it visible to anyone with a link if enabled in config.json .
+        if shareable:
+            service.permissions().create(body={"role": "reader", "type": "anyone"}, fileId=file.get('id')).execute()
+        return download_url
     else:
-        main()
+        return None

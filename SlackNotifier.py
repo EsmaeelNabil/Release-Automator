@@ -1,19 +1,24 @@
 import json
 import datetime
+import os
+
 import requests
 
-config = json.load(open('/home/esmaeel/PycharmProjects/pythonProject/config.json'))
+root = os.path.dirname(__file__)
+config = json.load(open(f'{root}/config.json'))
 
 
-def notify(version, download_url, custom_message=""):
+def notify(message, download_url, receiver):
     current_date = datetime.datetime.today().strftime('%d-%b-%Y')
     # RECEIVER
-    url = config["receiver"]
+
     author = config["author"]
     body = {
-        'text': f'{version} \ndate : {current_date}: <{download_url}|Download> \nAuther : {author}\n{custom_message}',
-        'username': 'Android Muhla Release Bot',
+        'text': f'{message} \n'
+                f'date : {current_date}: <{download_url}|Download> \n'
+                f'Author : {author}\n',
+        'username': 'Android Release Bot',
         'icon_emoji': ':rocket:'
     }
     bod = json.dumps(body)
-    print(requests.post(url, bod).text)
+    print(requests.post(receiver, bod).text)
