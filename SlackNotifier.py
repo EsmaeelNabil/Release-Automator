@@ -9,8 +9,9 @@ def notify(version, download_url, custom_message=""):
     current_date = datetime.datetime.today().strftime('%d-%b-%Y')
     # RECEIVER
     url = config["receiver"]
+    author = config["author"]
     body = {
-        'text': f'{version} \ndate : {current_date}: <{download_url}|Download> \nAuther : Esmaeel Nabil\n{custom_message}',
+        'text': f'{version} \ndate : {current_date}: <{download_url}|Download> \nAuther : {author}\n{custom_message}',
         'username': 'Android Muhla Release Bot',
         'icon_emoji': ':rocket:'
     }

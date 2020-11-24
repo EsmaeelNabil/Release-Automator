@@ -14,7 +14,8 @@ using `slack Incoming WebHocks`.
   {
   "enable_slack_notification": true,
   "change_permission": true,
-  "receiver": "get this url from Slack incoming web hocks"
+  "receiver": "get this url from Slack incoming web hocks",
+  "auther" : "Auther name"
   }
     ```
   #####
@@ -24,7 +25,7 @@ using `slack Incoming WebHocks`.
   {
   "installed": {
     "client_id": "",
-    "project_id": "release-bot-uplo-1603483784769",
+    "project_id": " ",
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
     "token_uri": "https://oauth2.googleapis.com/token",
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
@@ -44,17 +45,19 @@ using `slack Incoming WebHocks`.
 - Install required libraries first. 
    ``` 
    pip install -r requirements.txt
-   ```    
+   ```
+   
+- Build APK --> Upload to Drive --> Notify Slack.
+    ####
+    ```
+    python3 flyNow.py "version_or_name"
+    ```
+-  notification will be sent to the `reveiver` in `config.json` , you should specify a version or name or `empty "" ` string for no name or version.
+    ##
 - Upload to Drive --> Notify Slack.
   ```
   python3 uploader.py -u <filepath> <version or name>
     ```
 - for uploading a file, you should specify a name for the slack notification, `python3 uploader -u <filepath> "name" ` `""` as an empty string.  
-    ##
-- Build APK --> Upload to Drive --> Notify Slack.
-    ####
-    ```
-    python3 flyNow.py -u <filepath> <version or name>
-    ```
--  notification will be sent to the `reveiver` in `config.json` , you should specify a version or name or `empty "" ` string for no name or version.
+
 
